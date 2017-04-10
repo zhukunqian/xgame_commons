@@ -7,6 +7,19 @@ repositories {
 
 dependencies {
     compile 'org.slf4j:slf4j-api:1.7.21'
-
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.5'
+	compile group: 'commons-codec', name: 'commons-codec', version: '1.10'
+	compile group: 'commons-io', name: 'commons-io', version: '2.5'
+	compile group: 'com.google.guava', name: 'guava', version: '21.0'
+	
     testCompile 'junit:junit:4.12'
+}
+
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
+eclipseJdt << {
+    File f = file('.settings/org.eclipse.core.resources.prefs')
+    f.write('eclipse.preferences.version=1\n')
+    f.append('encoding/<project>=utf-8')
 }
