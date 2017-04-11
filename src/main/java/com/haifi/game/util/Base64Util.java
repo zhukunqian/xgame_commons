@@ -41,5 +41,9 @@ public class Base64Util {
         return null;
     }
 
+    public static byte[] decode2(String str) {
+        return Base64.decodeBase64(str);
+    }
+
     private static final Logger log = LoggerFactory.getLogger(DesUtil.class);
 }
