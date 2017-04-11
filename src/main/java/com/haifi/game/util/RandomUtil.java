@@ -1,8 +1,7 @@
 package com.haifi.game.util;
 
 import java.util.List;
-
-import org.apache.commons.lang3.RandomUtils;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomUtil {
     public static int randomIndex(List<Integer> rates) {
@@ -13,7 +12,7 @@ public class RandomUtil {
         if (totalRates == 0) {
             return -1;
         }
-        int randomRate = RandomUtils.nextInt(0, totalRates);
+        int randomRate = nextInt(totalRates);
 
         for (int m = 0; m < rates.size(); m++) {
             if (randomRate < rates.get(m)) {
@@ -33,7 +32,7 @@ public class RandomUtil {
         if (totalRates == 0) {
             return -1;
         }
-        int randomRate = RandomUtils.nextInt(0, totalRates);
+        int randomRate = nextInt(totalRates);
         for (int m = 0; m < rates.length; m++) {
             if (randomRate < rates[m]) {
                 return m;
@@ -42,6 +41,14 @@ public class RandomUtil {
             }
         }
         return -1;
+    }
+
+    public static int nextInt(int bound) {
+        return ThreadLocalRandom.current().nextInt(bound);
+    }
+
+    public static int nextInt() {
+        return ThreadLocalRandom.current().nextInt();
     }
 
 }
