@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class StringUtil {
     public static String parse(String content, String regEx) {
         Pattern p = Pattern.compile(regEx, Pattern.DOTALL);
@@ -28,4 +31,5 @@ public class StringUtil {
         return returnStrs;
     }
 
+    private static final Logger log = LoggerFactory.getLogger(Rc4Util.class);
 }

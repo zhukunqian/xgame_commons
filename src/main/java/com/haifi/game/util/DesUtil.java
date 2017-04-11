@@ -1,6 +1,7 @@
 package com.haifi.game.util;
 
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
@@ -17,7 +18,7 @@ import org.slf4j.LoggerFactory;
  *
  */
 public class DesUtil {
-    private static final Charset DEFAULT_CHARSET = Charset.forName("UTF8");
+    private static final Charset DEFAULT_CHARSET = StandardCharsets.UTF_8;
 
     public static String encrypt(String key, String str) {
         return new String(encrypt(key, str.getBytes(DEFAULT_CHARSET)), DEFAULT_CHARSET);
